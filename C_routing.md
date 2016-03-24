@@ -4,7 +4,7 @@ title: Penggunaan Route
 permalink: /routing
 ---
 
-Router adalah titik temu utama aplikasi Phoenix.  Mereka memadankan permohonan HTTP kepada action di dalam controller, memasang pengurusan channel real-time, dan menetapkan satu siri transformasi 'pipepline' untuk membuat skop middleware kepada satu kumpulan route.
+Router adalah titik temu utama aplikasi Phoenix.  Mereka memadankan permohonan HTTP kepada action di dalam controller, memasang pengurusan channel masa-nyata, dan menetapkan satu siri transformasi 'pipepline' untuk membuat skop middleware kepada satu kumpulan route.
 
 Fail router yang dijanakan Phoenix, `web/router.ex`, akan kelihatan seperti berikut:
 
@@ -59,9 +59,9 @@ Jika hanya inilah route di dalam modul router kita, klausa fungsi `match/3` akan
   def match(conn, "GET", ["/"])
 ```
 
-Badan fungsi `match/3` menyediakan hubungan dan menyeru controller action yang berpadanan.
+Badan fungsi `match/3` menyediakan hubungan dan membangkitkan controller action yang berpadanan.
 
-Apabila kita menambah lebih banyak route, lebih banyak klausa akan ditambah kepada fungsi `match/3` di dalam modul router kita.  Tabiat mereka adalah sama dengan mana-mana fungsi berpelbagai klausa(satu fungsi banyak kepala) dalam Elixir. Mereka akan cuba dipadankan dari atas ke bawah, dan klausa pertama yang berjaya dipadankan dengan parameter yang diberikan(path dan verb) akan dilaksanakan.  Setelah padanan dijumpai, proses pemadanan corak itu akan dihentikan dan klausa-klausa lain tidak akan diuji.
+Apabila kita menambah lebih banyak route, lebih banyak klausa akan ditambah kepada fungsi `match/3` di dalam modul router kita.  Tabiat mereka adalah sama dengan mana-mana fungsi pelbagai klausa(satu fungsi banyak kepala) dalam Elixir. Mereka akan cuba dipadankan dari atas ke bawah, dan klausa pertama yang berjaya dipadankan dengan parameter yang diberikan(path dan verb) akan dilaksanakan.  Setelah padanan dijumpai, proses pemadanan corak itu akan dihentikan dan klausa-klausa lain tidak akan diuji.
 
 Ini bermakna ianya berkemungkinan untuk membuat satu route yang tidak akan dipadankan bergantung kepada HTTP verb dan path.
 
@@ -92,11 +92,11 @@ page_path  GET  /  HelloPhoenix.PageController :index
 ```
 Output itu memberitahu kita bahawa mana-mana permohonan HTTP GET kepada root aplikasi ini akan diuruskan oleh action `index` dari `HelloPhoenix.PageController`.
 
-`page_path` adalah stu contoh apa yang Phoenix panggil sebagai path helper, dan kita akan bincangkan mereka sekejap lagi.
+`page_path` adalah satu contoh apa yang Phoenix panggil sebagai path helper, dan kita akan bincangkan mereka sekejap lagi.
 
 ### Resources
 
-Modul router menyokong makro-makro lain selain dari HTTP verbs seperti `get`, `post`, dan `put`.  Makro yang paling penting di antara mereka adalah `resources`, yang akan berkembang kepada lapan klause fungsi `match/3`. 
+Modul router menyokong makro-makro lain selain dari HTTP verbs seperti `get`, `post`, dan `put`.  Makro yang paling penting di antara mereka adalah `resources`, yang akan berkembang kepada lapan klausa fungsi `match/3`. 
 
 Mari tambahkan satu resource kepada fail `web/router.ex` seperti berikut:
 
@@ -112,7 +112,7 @@ Untuk tujuan ini, ianya tidak penting yang kita sebenarnya tidak mempunyai satu 
 
 Kemudian pergi ke projek itu, dan jalankan `$ mix phoenix.routes`.
 
-Anda sepatutya dapat melihat sesuatu seperti berikut:
+Anda sepatutnya dapat melihat sesuatu seperti berikut:
 
 ```elixir
 user_path  GET     /users           HelloPhoenix.UserController :index
