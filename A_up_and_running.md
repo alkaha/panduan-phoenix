@@ -114,7 +114,7 @@ You can also run your app inside IEx (Interactive Elixir) as:
 
 Phoenix menerima permohonan di port 4000 secara lalai.  Jika kita tunjukkan browser kita kepada [http://localhost:4000](http://localhost:4000), kita sepatutnya dapat melihat paparan aluan Framework Phoenix.
 
-![Phoenix Welcome Page](/images/welcome-to-phoenix.png)
+![Phoenix Welcome Page](/panduan-phoenix/images/welcome-to-phoenix.png)
 
 Jika paparan anda adalah seperti di atas, tahniah! Anda mempunyai satu aplikasi Phoenix yang berfungsi.  Jika anda tidak mendapat paparan sebagaimana di atas, cuba mengakses melalui [http://127.0.0.1:4000](http://127.0.0.1:4000) dan kemudian pastikan sistem pengendalian anda menetapkan "localhost" sebagai "127.0.0.1".
 
