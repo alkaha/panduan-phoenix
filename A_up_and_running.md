@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Siap Sedia Mula!
-permalink: /up-and-running
+permalink: /panduan-phoenix/up-and-running
 ---
 
 Tujuan utama panduan pertama ini adalah untuk mendapatkan aplikasi Phoenix berfungsi secepat mungkin.
