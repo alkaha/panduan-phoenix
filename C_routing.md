@@ -623,7 +623,7 @@ Endpoint menguruskan semua plug yang lazim kepada setiap permohonan, dan melasan
 - [Plug.MethodOverride](http://hexdocs.pm/plug/Plug.MethodOverride.html) - menukarkan fungsi permohonan kepada 
   PUT, PATCH atau DELETE untuk permohonan POST dengan parameter `_method` yang sah.
 
-- [Plug.Head](http://hexdocs.pm/plug/Plug.Head.html) - meukarkan permohonan HEAD kepada permohonan GET dan mempelaskan kandungan badan sambutan.
+- [Plug.Head](http://hexdocs.pm/plug/Plug.Head.html) - menukarkan permohonan HEAD kepada permohonan GET dan mempelaskan kandungan badan sambutan.
 
 - [Plug.Session](http://hexdocs.pm/plug/Plug.Session.html) - plus yang menyediakan pengurusan session.
   Fungsi `fetch_session/2` mesti dipanggil secara eksplisit sebelum menggunakan session tersebut kerana plug ini cuma menyediakan bagaimana session itu dicapai.
@@ -634,7 +634,7 @@ Endpoint menguruskan semua plug yang lazim kepada setiap permohonan, dan melasan
 
 Phoenix menakrifkan dua lagi saluran paip secara lalai, `:browser` dan `:api`.  Router itu akan membangkitkan saluran paip ini setelah ia memadankan satu route, dengan sangkaan kita telah memanggil `pipe_through/1` dengan mereka di dalam skop.
 
-Saluran paip `:browser` mememiliki lima plug: ``plug :accepts, ["html"]` menakrifkan format-format permohoman yang akan diterima.  `:fetch_session`, mencapai data session dan membuatnya sebagai boleh sedia di dalam hubungan, `:fetch_flash` yang mencapai mesej-mesej flash yang telah ditetapkan, begitu juga `:protect_from_forgery` and `:put_secure_browser_headers`, yang melindungi hantaran borang dari cross site forgery. 
+Saluran paip `:browser` mememiliki lima plug: `plug :accepts, ["html"]` menakrifkan format-format permohoman yang akan diterima.  `:fetch_session`, mencapai data session dan membuatnya sebagai boleh sedia di dalam hubungan, `:fetch_flash` yang mencapai mesej-mesej flash yang telah ditetapkan, begitu juga `:protect_from_forgery` and `:put_secure_browser_headers`, yang melindungi hantaran borang dari cross site forgery. 
 
 Buat masa ini, saluran paip `:api` hanya menakrifkan `plug :accepts, ["json"]`.
 
