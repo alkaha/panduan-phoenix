@@ -608,9 +608,9 @@ Pipeline hanyalah satu kumpulan plug yang disusun di dalam satu urutan dan diber
 
 Satu aplikasi yang baru dijanakan menetapkan dua pipeline dipanggil `:browser` dan `:api`.  Kita akan bincangkan mereka sebentar lagi, tetapi terlebih dahulu kita perlu bincangkan susunan plug di dalam plug Endpoint.
 
-##### Plug Endpoint Plug
+##### Plug Endpoint
 
-Endpoint menguruskan semua plug yang lazim kepada setiap permohonan, dan melasanakan mereka sebelum diagihkan kepada router bersama dengan `:browser`, `:api` dan pipeline lain.  Plug Endpoint lalai melakukan banyak tugasan.  Ini senarai mereka, dalam susunan.
+Endpoint menguruskan semua plug yang lazim kepada setiap permohonan, dan melaksanakan mereka sebelum diagihkan kepada router bersama dengan `:browser`, `:api` dan pipeline lain.  Plug Endpoint lalai melakukan banyak tugasan.  Ini senarai mereka, dalam susunan.
 
 - [Plug.Static](http://hexdocs.pm/plug/Plug.Static.html) - melayan aset statik.  Oleh kerana plug ini dilaksanakan sebelum logger, layanan aset statik tidak disimpan di dalam log.
 
@@ -623,7 +623,7 @@ Endpoint menguruskan semua plug yang lazim kepada setiap permohonan, dan melasan
 - [Plug.MethodOverride](http://hexdocs.pm/plug/Plug.MethodOverride.html) - menukarkan fungsi permohonan kepada 
   PUT, PATCH atau DELETE untuk permohonan POST dengan parameter `_method` yang sah.
 
-- [Plug.Head](http://hexdocs.pm/plug/Plug.Head.html) - menukarkan permohonan HEAD kepada permohonan GET dan mempelaskan kandungan badan sambutan.
+- [Plug.Head](http://hexdocs.pm/plug/Plug.Head.html) - menukarkan permohonan HEAD kepada permohonan GET dan menghuraikan kandungan badan sambutan.
 
 - [Plug.Session](http://hexdocs.pm/plug/Plug.Session.html) - plus yang menyediakan pengurusan session.
   Fungsi `fetch_session/2` mesti dipanggil secara eksplisit sebelum menggunakan session tersebut kerana plug ini cuma menyediakan bagaimana session itu dicapai.
