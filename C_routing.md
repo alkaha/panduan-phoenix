@@ -803,7 +803,7 @@ defmodule HelloPhoenix.Endpoint do
 end
 ```
 
-Seterusnya, kita perlu membuka fail `web/channels/user_socket.ex` dan gunakan makro `channel/3` untuk menakrifkan route channel kita.  Route tersebut akan memadankan satu corak topik dengan satu channel untuk menguruskan event.  Jka kita mempunyai satu modul channel bernama `RoomChannel` dan satu topik bernama `"rooms:*"`, kod untuknya amat jelas.
+Seterusnya, kita perlu membuka fail `web/channels/user_socket.ex` dan gunakan makro `channel/3` untuk menakrifkan route channel kita.  Route tersebut akan memadankan satu corak topik dengan satu channel untuk menguruskan event.  Jika kita mempunyai satu modul channel bernama `RoomChannel` dan satu topik bernama `"rooms:*"`, kod untuknya amat jelas.
 
 ```elixir
 defmodule HelloPhoenix.UserSocket do
@@ -841,6 +841,7 @@ socket "/admin-socket", HelloPhoenix.AdminSocket
 ### Ringkasan
 
 Routing ialah satu topik yang besar, dan kita telah meneroka banyak kawasan di sini.  Perkara penting untuk diambil dari panduan ini adalah:
+
 - Route yang bermula dengan satu nama HTTP verb akan dikembangkan kepada satu sahaja klausa fungsi `match`.
 - Route yang bermula dengan 'resources' akan dikembangkan kepada 8 klausa fungsi `match`.
 - 'Resources' boleh menyekat jumlah klausa fungsi `match` menggunakan pilihan `only:` atau `except:`. 
