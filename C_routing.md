@@ -679,7 +679,7 @@ Apabila pelayan menerima satu permohonan, permohonan itu akan sentiasa melalui p
 
 Katalah permohonan tersebut padan dengan route pertama kita: satu GET kepada `/`.  Router tersebut pertama sekali akan melalukan permohonan tersebut kepada saluran paip `:browser` - yang akan mencapai data sessi, mencapai mesej-mesej flash, dan melaksanankan perlindungan pemalsuan - mengagihkan permohonan tersebut  kepada action `index` `PageController`.
 
-Sebaliknya, jika permohonan itu padan dengan mana-mana route ditakrifkan oleh makro `resources/2`, router itu akan melalukannya melalui saluran paip `:api` - yang semasa tidak melakukan apa-apa - sebelumn ia diagihkan kepada action yang betul dari `HelloPhoenix.ReviewController`.
+Sebaliknya, jika permohonan itu padan dengan mana-mana route ditakrifkan oleh makro `resources/2`, router itu akan melalukannya melalui saluran paip `:api` - yang semasa tidak melakukan apa-apa - sebelumnia diagihkan kepada action yang betul dari `HelloPhoenix.ReviewController`.
 
 Jika kita tahu aplikasi kita cuma memproses view untuk browser, kita boleh meringkaskan router kita sedikit dengan mengeluarkan apa-apa berkaitan dengan `api` dan juga mengeluarkan penggunaan skop:
 
