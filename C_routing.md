@@ -238,9 +238,9 @@ Endpoint aplikasi akan mempunyai panduan mereka sendiri dalam masa terdekat.  Un
 
 Fungsi `_url` akan mencapai host, port, port proksi dan maklumat SSL yang diperlukan untuk membina URL penuh tersebut daripada parameter konfigurasi yang ditetapkan untuk setiap persekitaran.  Kita akan bincangkan mengenai konfigurasi dengan lebih terperinci di dalam panduan mereka sendiri.  Buat masa sekarang, anda boleh melihat konfigurasi tersebut di dalam fail `/config/dev.exs`.
 
-### Nested Resources
+### Resources Bersarang
 
-Ianya juga dibolehkan untuk menetapkan nested resources di dalam router Phoenix.  Katalah kita juga mempunyai satu resource `posts` yang mempunyai satu hubungan satu ke banyak dengan `users`.  Dengan kata lain, satu user boleh membuat banyak post, dan setiap satu post individu akan dimilki oleh satu user. Kita boleh membinanya dengan menambah satu nested route di dalam `web/router` seperti ini: 
+Ianya juga dibolehkan untuk menetapkan resource bersarang di dalam router Phoenix.  Katalah kita juga mempunyai satu resource `posts` yang mempunyai satu hubungan satu ke banyak dengan `users`.  Dengan kata lain, satu user boleh membuat banyak post, dan setiap satu post individu akan dimilki oleh satu user. Kita boleh membinanya dengan menambah satu route bersarang di dalam `web/router` seperti ini: 
 
 ```elixir
 resources "/users", UserController do
@@ -263,7 +263,7 @@ user_post_path  DELETE  users/:user_id/posts/:id HelloPhoenix.PostController :de
 
 Kita dapat melihat setiap route di atas mengaitkan setiap post kepada satu ID user.  Untuk yang pertama, kita akan memanggil action `index` `PostController`, dan kita juga hantarkan satu `user_id`.  Ini menunjukkan yang kita akan memaparkan semua post untuk user tersebut sahaja.  'Scoping' yang sama ditetapka untuk semua route tersebut.
 
-Apabila memanggil fungsi-fungsi penyokong path untuk 'nested routes', kita perlu menghantar ID dalam susunan sama mereka ditetapkan di dalam route.  Untuk route `show` berikut, `42` ialah untuk `user_id`, dan `17` ialah untuk `post_id`.  Kita juga perlu memasukkan baris `alias HelloPhoenix.Endpoint` sebelum bermula.
+Apabila memanggil fungsi-fungsi penyokong path untuk route bersarang, kita perlu menghantar ID dalam susunan sama mereka ditetapkan di dalam route.  Untuk route `show` berikut, `42` ialah untuk `user_id`, dan `17` ialah untuk `post_id`.  Kita juga perlu memasukkan baris `alias HelloPhoenix.Endpoint` sebelum bermula.
 
 ```elixir
 iex> alias HelloPhoenix.Endpoint
@@ -300,7 +300,7 @@ Path untuk ulasan kegunaan admin mungkin diprefikskan dengan `/admin`.
 . . .
 ```
 
-Kita melaksanakan ini dengan satu route berskop yang menetapkan satu pilihan path kepada `/admin` seperti ini.  Untuk masa ini, kita tidak akan membuat nest kepada skop di dalam skop-skop yang lain (seperti `scope "/", HelloPhoenix do` yang dibekalkan kepada kita di dalam satu aplikasi baru).
+Kita melaksanakan ini dengan satu route berskop yang menetapkan satu pilihan path kepada `/admin` seperti ini.  Untuk masa ini, kita tidak akan membuat sarang kepada skop di dalam skop-skop yang lain (seperti `scope "/", HelloPhoenix do` yang dibekalkan kepada kita di dalam satu aplikasi baru).
 
 ```elixir
 scope "/admin" do
@@ -456,7 +456,7 @@ admin_review_path  DELETE  /admin/reviews/:id HelloPhoenix.Admin.ReviewControlle
   admin_user_path  DELETE  /admin/users/:id HelloPhoenix.Admin.UserController :delete
 ```
 
-Ini bagus, betul-betul apa yang kita mahu, tetapi kita mahu membuat penambahbaikan.  Perhatikan setiap resource, kita perlu memanggil nama penuh controller dengan prefiks `HelloPhoenix.Admin`.  Ianya susah dan terdedah kepada kesilapan.  Anggapkan nama setiap controller bermula dengan `HelloPhoenix.Admin`, jadi kita boleh mena,bah `HelloPhoenix.Admin` kepada tetapan skop selepas tetapan path skop, dan semua route kita akan memiliki nama penuh controller yang tepat.
+Ini bagus, betul-betul apa yang kita mahu, tetapi kita mahu membuat penambahbaikan.  Perhatikan setiap resource, kita perlu memanggil nama penuh controller dengan prefiks `HelloPhoenix.Admin`.  Ianya susah dan terdedah kepada kesilapan.  Anggapkan nama setiap controller bermula dengan `HelloPhoenix.Admin`, jadi kita boleh menambah `HelloPhoenix.Admin` kepada tetapan skop selepas tetapan path skop, dan semua route kita akan memiliki nama penuh controller yang tepat.
 
 ```elixir
 scope "/admin", HelloPhoenix.Admin, as: :admin do
@@ -470,7 +470,7 @@ end
 
 Sekarang jalankan `$ mix phoenix.routes` sekali lagi dan anda akan dapatmelihat hasil seperti di mana kita meletakkan nama penuh setiap controller setiap satu.
 
-Sebagai bonus tambaha, kita boleh nest semua route untuk aplikasi kita di dalam satu skop yang hanya mempunyai satu alias kepada nama aplikasi Phoenix kita dan mengelakkan dari duplikasi di dalam nama controller kita.
+Sebagai bonus tambahan, kita boleh membuat sarang untuk semua route untuk aplikasi kita di dalam satu skop yang hanya mempunyai satu alias kepada nama aplikasi Phoenix dan mengelakkan dari duplikasi di dalam nama controller kita.
 
 Phoenix telah melakukan ini untuk kita di dalam router yang dijanakan untuk setiap aplikasi baru (lihat permulaan bahagian ini).  Perhatikan di sini penggunaan `HelloPhoenix.Router` di dalam tetapan `defmodule`:
 
@@ -510,7 +510,7 @@ review_path  DELETE  /reviews/:id       HelloPhoenix.ReviewController :delete
   user_path  DELETE  /users/:id         HelloPhoenix.UserController :delete
 ```
 
-Walaupun secara teknikal skop-skop boleh di-nest-kan (seperti resource), penggunaan skop ber-nest selalunya tidak digalakkan sebab ia kadang-kadang membuat kod kita kurang jelas.  Walaupunbegitu, katakan kita ada API berversi dengan tetapan resource untuk imej, review dan user.  Secara teknikalnya kita boleh menetapkan route untuk API berversi itu seperti ini:
+Walaupun secara teknikal skop-skop boleh disarangkan (seperti resource), penggunaan skop bersarang selalunya tidak digalakkan sebab ia kadang-kadang membuat kod kita kurang jelas.  Walaupunbegitu, katakan kita ada API berversi dengan tetapan resource untuk imej, review dan user.  Secara teknikalnya kita boleh menetapkan route untuk API berversi itu seperti ini:
 
 ```elixir
 scope "/api", HelloPhoenix.Api, as: :api do
@@ -598,13 +598,13 @@ post_path  PATCH   /posts/:id       AnotherApp.PostController :update
 post_path  DELETE  /posts/:id       AnotherApp.PostController :delete
 ```
 
-### Pipelines
+### Pipeline
 
 Kita telah jauh meneroka panduan ini tanpa membincangkan salah satu baris yang kita lihat di dalam router - `pipe_through :browser`.  Sekarang masa untuk bincangkannya.
 
 Di dalam panduan [Overview Guide](http://www.phoenixframework.org/docs/overview) kita menerangkan bahawa plug adalah tersusun dan dilaksanakan mengikut urutan yang telah ditetapkan, seperti satu saluran paip? Sekarang kita aka mengambil pandangan lebih dekat bagaimana susunan plug berfungsi di dalam router.
 
-Pipeline hanyalah satu susunan plug disusun di dalam satu urutan dan diberikan satu nama.  Mereka membenarkan kita mengubahsuai carakerja dan transformasi berkaitan dengan pengurusan permohonan web.  Phoenix membekalkan kita beberapa pipeline lalai untuk beberapa tugasan biasa.  Kita pula boleh mengubahsuai mereka dan juga membina pipeline baru sesuai dengan kegunaan kita.
+Pipeline hanyalah satu kumpulan plug yang disusun di dalam satu urutan dan diberikan satu nama.  Mereka membenarkan kita mengubahsuai carakerja dan transformasi berkaitan dengan pengurusan permohonan web.  Phoenix membekalkan kita beberapa pipeline lalai untuk beberapa tugasan biasa.  Kita pula boleh mengubahsuai mereka dan juga membina pipeline baru sesuai dengan kegunaan kita.
 
 Satu aplikasi yang baru dijanakan menetapkan dua pipeline dipanggil `:browser` dan `:api`.  Kita akan bincangkan mereka sebentar lagi, tetapi terlebih dahulu kita perlu bincangkan susunan plug di dalam plug Endpoint.
 
