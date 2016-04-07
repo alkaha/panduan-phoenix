@@ -132,7 +132,6 @@ Ini adalah matriks biasa untuk HTTP verb, path dan controller action.  Kita akan
 - Permohonan GET kepada `/users` akan menjalankan action `index` untuk menyenaraikan semua 'users'.
 - Permohonan GET kepada `/users/:id` akan menjalankan action `show` bersama satu id untuk memaparkan maklumat satu 'user' yang diidentifikasikan dengan ID tersebut.
 - Permohonan GET kepada `/users/new` akan menjalankan action `new` untuk memaparkan satu borang untuk mencipta satu 'user' baru.
-- A POST request to `/users` will invoke the `create` action to save a new user to the data store.
 - Permohonan POST kepada `/users` akan menjalankan action `create` untuk  menyimpan maklumat 'user' baru ke pangkalan data.
 - Permohonan GET kepada `/users/:id/edit` akan menjalankan action `edit` bersama ID untuk memaparkan 'user' yang mempunyai ID tersebut di dalam borang untuk tujuan kemaskini.
 - Permohonan PATCH kepada `/users/:id` akan menjalankan action `update` bersama ID untuk mengemaskini maklumat 'user' ke pangkalan data.
@@ -635,9 +634,6 @@ Endpoint menguruskan semua plug yang lazim kepada setiap permohonan, dan melasan
 
 Phoenix menakrifkan dua lagi saluran paip secara lalai, `:browser` dan `:api`.  Router itu akan membangkitkan saluran paip ini setelah ia memadankan satu route, dengan sangkaan kita telah memanggil `pipe_through/1` dengan mereka di dalam skop.
 
-As their names suggest, the `:browser` pipeline prepares for routes which render requests for a browser. The `:api` pipeline prepares for routes which produce data for an api.
-Seperti nama mereka, saluran paip `:browser` menyediakan route yang menghantar permohonan kepada satu browser.  Saluran paio `:api` menyediakan route yang menghasilkan data untuk satu API.
-
 Saluran paip `:browser` mememiliki lima plug: ``plug :accepts, ["html"]` menakrifkan format-format permohoman yang akan diterima.  `:fetch_session`, mencapai data session dan membuatnya sebagai boleh sedia di dalam hubungan, `:fetch_flash` yang mencapai mesej-mesej flash yang telah ditetapkan, begitu juga `:protect_from_forgery` and `:put_secure_browser_headers`, yang melindungi hantaran borang dari cross site forgery. 
 
 Buat masa ini, saluran paip `:api` hanya menakrifkan `plug :accepts, ["json"]`.
@@ -794,7 +790,6 @@ end
 
 ### Route Untuk Channel
 
-Channels are a very exciting, real-time component of the Phoenix framework. Channels handle incoming and outgoing messages broadcast over a socket for a given topic. Channel routes, then, need to match requests by socket and topic in order to dispatch to the correct channel. (For a more detailed description of channels and their behavior, please see the [Channel Guide](http://www.phoenixframework.org/docs/channels).)
 Channel adalah komponen masa-nyata untuk Phoenix.  Channel menguruskan proses keluar masuk mesej-mesej siaran melalui satu soket untuk sesatu topik.  Route Channel, perlu memadankan permohonan melalui soket dan topik untuk pengagihan kepada channel yang betul.  (Mohon lihat [Channel Guide](http://www.phoenixframework.org/docs/channels) untuk maklumat lanjut.)
 
 Kita pasangkan pengurus soket di dalam endpoint di `lib/hello_phoenix/endpoint.ex`.  Pengurus soket menguruskan authentication callback dan route-route channel.
